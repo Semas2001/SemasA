@@ -18,3 +18,28 @@ document.addEventListener("scroll", function () {
         }
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const aboutSection = document.querySelector('.h2container');
+  
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+  
+    function handleScroll() {
+      if (isInViewport(aboutSection)) {
+        aboutSection.classList.add('active');
+        window.removeEventListener('scroll', handleScroll); // Remove event listener once triggered
+      }
+    }
+  
+    window.addEventListener('scroll', handleScroll);
+  });
+  
