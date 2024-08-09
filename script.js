@@ -19,8 +19,8 @@ document.addEventListener("scroll", function () {
     });
 });
 
-
 document.addEventListener("DOMContentLoaded", function() {
+    const content = document.querySelector('.content');
     const aboutSection = document.querySelector('.h2container');
   
     function isInViewport(element) {
@@ -40,6 +40,18 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
   
+    // Simulate the end of the title animation
+    setTimeout(() => {
+        content.classList.add('fade-out');
+    }, 3000); // Adjust this timeout to match the duration of your title animation
+
     window.addEventListener('scroll', handleScroll);
-  });
-  
+});
+
+
+  document.addEventListener('scroll', function() {
+    const scrollHint = document.querySelector('.scroll-hint');
+    if (scrollHint) {
+        scrollHint.style.display = 'none';
+    }
+}, { once: true });  // The event listener is removed after the first scroll event

@@ -5,6 +5,7 @@ body {
   padding: 0;
   background-color: #34495e;
   font-family: "Lato", sans-serif;
+  display: flexbox;
 }
 
 .content {
@@ -111,15 +112,36 @@ header {
   text-decoration: underline;
 }
 
+.scroll-hint {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  color: #ecf0f1;
+  animation: flash 1s infinite;
+  z-index: 1000;
+  pointer-events: none; /* Prevent interaction */
+}
+
+@keyframes flash {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
 .aboutme {
   background-color: #ecf0f1;
   color: #34495e;
   height: auto;
   place-items: center;
   display: grid;
-  grid-template-rows: 300px;
+  grid-template-rows: 200px;
   gap: 20px;
   margin-top: 1px;
+  background-color: #34495e;
 }
 
 .h2container {
@@ -129,6 +151,7 @@ header {
   font-family: "Lato";
   position: relative;
   margin-bottom: 1px;
+  background-color: #34495e;
 }
 .h2container div {
   position: absolute;
@@ -141,17 +164,17 @@ header {
 .h2container .upper {
   top: 0px;
   height: 52.5%;
-  color: #34495e;
+  color: #263545;
   overflow: hidden;
   z-index: 3;
-  background-color: #ecf0f1;
+  background-color: #34495e;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
 .h2container .lower {
   top: 0px;
   height: 100%;
-  background: linear-gradient(180deg, #ecf0f1 52.5%, #34495e 52.5%);
+  background: linear-gradient(180deg, #34495e 52.5%, #263545 52.5%);
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
@@ -166,7 +189,7 @@ header {
   text-align: center;
   z-index: 2;
   font-size: 1rem;
-  color: #34495e;
+  color: #44596f;
 }
 .h2container.active .upper {
   opacity: 1; /* Make visible when active */
@@ -178,8 +201,8 @@ header {
 }
 
 .extra-content {
-  background-color: #ecf0f1;
-  color: #34495e;
+  background-color: #34495e;
+  color: #ecf0f1;
   place-items: center;
   display: grid;
   grid-template-rows: 300px;
