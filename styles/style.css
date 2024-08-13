@@ -1,11 +1,10 @@
 body {
-  width: 100%;
+  width: auto;
   min-height: 100vh;
   margin: 0;
   padding: 0;
   background-color: #34495e;
   font-family: "Lato", sans-serif;
-  display: flexbox;
 }
 
 .content {
@@ -32,7 +31,7 @@ body {
 .content__container:before, .content__container:after {
   position: absolute;
   top: 0;
-  font-size: px;
+  font-size: 30px;
   line-height: 40px;
   color: #a07016;
   animation: opacity 2s infinite;
@@ -132,15 +131,14 @@ header {
   }
 }
 .aboutme {
-  background-color: #ecf0f1;
-  color: #34495e;
+  background-color: #34495e;
+  color: #ecf0f1;
   height: auto;
   place-items: center;
   display: grid;
   grid-template-rows: 200px;
   gap: 20px;
   margin-top: 1px;
-  background-color: #34495e;
 }
 
 .h2container {
@@ -161,7 +159,7 @@ header {
   text-align: center;
 }
 .h2container .upper {
-  top: 0px;
+  top: 0;
   height: 52.5%;
   color: #263545;
   overflow: hidden;
@@ -171,7 +169,7 @@ header {
   transition: opacity 0.5s ease-in-out;
 }
 .h2container .lower {
-  top: 0px;
+  top: 0;
   height: 100%;
   background: linear-gradient(180deg, #34495e 52.5%, #263545 52.5%);
   color: transparent;
@@ -212,9 +210,9 @@ header {
 
 .extra-content img {
   max-width: 100%;
+  max-height: 100%;
   padding-left: 8px;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: auto;
   height: auto;
   grid-column: 2;
   border-radius: 500px;
@@ -232,38 +230,6 @@ header {
   grid-column: 1;
 }
 
-@keyframes moveUp {
-  0%, 100% {
-    top: -45px;
-  }
-  50%, 70% {
-    top: 0;
-  }
-}
-@keyframes moveDown {
-  0%, 100% {
-    top: 30px;
-  }
-  50%, 70% {
-    top: 0;
-  }
-}
-@media (max-width: 424px) {
-  .container {
-    font-size: 2.5rem;
-  }
-  .inside {
-    font-size: 0.75rem;
-  }
-}
-@media (max-width: 320px) {
-  .container {
-    font-size: 2rem;
-  }
-  .inside {
-    font-size: 0.5rem;
-  }
-}
 .university_pics {
   background-color: #34495e;
   color: #ecf0f1;
@@ -283,4 +249,99 @@ header {
   height: auto;
   grid-column: 2;
   border-radius: 500px;
+}
+
+@keyframes moveUp {
+  0%, 100% {
+    top: -58px;
+  }
+  50%, 70% {
+    top: 0;
+  }
+}
+@keyframes moveDown {
+  0%, 100% {
+    top: 30px;
+  }
+  50%, 75% {
+    top: 0;
+  }
+}
+@media (max-width: 768px) {
+  .content {
+    font-size: 2rem;
+  }
+  .scroll-hint {
+    font-size: 14px;
+  }
+  .header__text {
+    font-size: 20px;
+  }
+  .extra-content {
+    grid-template-columns: 1fr;
+  }
+  .extra-content img {
+    width: 30%;
+    grid-column: 1;
+    padding-left: 0px;
+    margin-left: 135px;
+    margin-top: 135px;
+  }
+  .extra-content p {
+    padding-right: 10px;
+    padding-left: 20px;
+    font-size: medium;
+    grid-column: 1;
+    width: 90%;
+  }
+  .aboutme {
+    grid-template-rows: auto;
+  }
+  .h2container {
+    font-size: 2rem;
+    padding-right: 20px;
+  }
+  .upper {
+    font-size: 2.5rem;
+  }
+  .lower {
+    font-size: 2.5rem;
+  }
+  .inside {
+    font-size: 0.55rem;
+  }
+}
+@media (max-width: 480px) {
+  .content {
+    font-size: 1.5rem;
+  }
+  .content .scroll-hint {
+    font-size: 12px;
+  }
+  .content .header__text {
+    font-size: 18px;
+  }
+  .content .extra-content p {
+    padding-right: 10px;
+  }
+  .content .h2container {
+    font-size: 2rem;
+  }
+  .content .inside {
+    font-size: 0.5rem;
+  }
+}
+@media (max-width: 480px) and (max-width: 320px) {
+  .content {
+    font-size: 1.2rem;
+  }
+  .header__text {
+    font-size: 16px;
+  }
+  .h2container {
+    font-size: 1.5rem;
+  }
+  .inside {
+    font-size: 0.4rem;
+  }
 }/*# sourceMappingURL=style.css.map */
