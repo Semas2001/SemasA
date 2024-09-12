@@ -1,0 +1,50 @@
+
+header {
+  position: fixed;
+  top: -100px; /* Hide the header initially by moving it off-screen */
+  left: 0;
+  width: 100%;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  z-index: 1000;
+  transition: top 0.3s ease-in-out; /* Smooth transition for showing the header */
+}
+
+
+.header__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.header__text {
+  font-size: 24px;
+  margin: 0;
+}
+
+.header__nav {
+  background-color: #34495e;
+  padding: 10px 0;
+}
+
+.header__nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.header__nav li {
+  margin: 0 15px;
+}
+
+.header__nav a {
+  color: #ecf0f1;
+  text-decoration: none;
+}
+
+.header__nav a:hover {
+  text-decoration: underline;
+}

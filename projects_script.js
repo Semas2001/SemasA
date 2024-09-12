@@ -1,56 +1,52 @@
-document.addEventListener("scroll", function () {
-    requestAnimationFrame(() => {
-        const content = document.querySelector(".content");
-        const header = document.querySelector("#header");
-        const scrollPosition = window.scrollY;
-        const maxScroll = 300; // Adjust this value as needed
-        const scale = Math.max(1 - scrollPosition / maxScroll, 0.5); // Scale down to 50%
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.querySelector("#header");
+    header.style.top = "0";
+    header.style.transition = "0"});
 
-        // Adjust content transformation
-        content.style.transform = `translateY(${Math.min(scrollPosition, maxScroll)}px)`;
-        content.style.fontSize = `${35 * scale}px`; // Adjust starting size as needed
 
-        // Move content into header when scrolling ends
-        if (scrollPosition > maxScroll) {
-            header.style.transform = 'translateY(0)';
-        } else {
-            header.style.transform = 'translateY(-100%)';
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('.flip-card').forEach(card => {
+    const flipCardBack = card.querySelector('.flip-card-back');
+    const description = flipCardBack.getAttribute('data-description');
+
+    if (!flipCardBack.querySelector('.text-container')) {
+      const textContainer = document.createElement('span');
+      textContainer.className = 'text-container';
+      flipCardBack.appendChild(textContainer);
+
+      const cursor = document.createElement('span');
+      cursor.className = 'cursor';
+      cursor.textContent = '|';
+      flipCardBack.appendChild(cursor);
+
+      card.addEventListener('mouseover', () => {
+        if (!flipCardBack.dataset.typed) {
+          flipCardBack.classList.add('expanded');
+
+          setTimeout(() => typeText(textContainer, description, cursor), 500);
+
+          flipCardBack.dataset.typed = true;
         }
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const content = document.querySelector('.content');
-    const aboutSection = document.querySelector('.h2container');
-  
-    function isInViewport(element) {
-      const rect = element.getBoundingClientRect();
-      return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      );
+      });
     }
-  
-    function handleScroll() {
-      if (isInViewport(aboutSection)) {
-        aboutSection.classList.add('active');
-        window.removeEventListener('scroll', handleScroll); // Remove event listener once triggered
+  });
+
+  function typeText(element, text, cursor) {
+    let index = 0;
+    const textWithLineBreaks = text.replace(/(\n\s*•)/g, '\n•');
+
+    const interval = setInterval(() => {
+      if (index < textWithLineBreaks.length) {
+        const char = textWithLineBreaks[index++];
+        if (char === '\n' && textWithLineBreaks[index] === '•') {
+          element.innerHTML += index === 1 ? '<br><br>' : '<br>';
+        } else {
+          element.innerHTML += char;
+        }
+      } else {
+        clearInterval(interval);
+        cursor.classList.add('blinking');
       }
-    }
-  
-    // Simulate the end of the title animation
-    setTimeout(() => {
-        content.classList.add('fade-out');
-    }, 3000); // Adjust this timeout to match the duration of your title animation
-
-    window.addEventListener('scroll', handleScroll);
+    }, 5); // Typing speed
+  }
 });
-
-document.addEventListener('scroll', function() {
-    const scrollHint = document.querySelector('.scroll-hint');
-    if (scrollHint) {
-        scrollHint.style.display = 'none';
-    }
-}, { once: true });

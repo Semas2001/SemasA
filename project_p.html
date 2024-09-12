@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="styles/p_style.css">
+    <link rel="stylesheet" href="styles/nav_bar.css">
     <title>Semas Armonitis</title>
 </head>
 <body>
     <header id="header">
         <div class="header__content">
-            <p class="header__text">Semas Armonitis</p>
+            <p class="header__text">Semas Armonaitis</p>
         </div>
         <nav class="header__nav">
             <ul>
@@ -19,9 +20,7 @@
             </ul>
         </nav>
     </header>
-
-    <div class="scroll-hint">Scroll Down</div>
-
+<!---------------------------Title Of Page-------------------------------->
     <div class="content">
         <div class="content__container">
             <p class="content__container__text">
@@ -30,28 +29,78 @@
         </div>
     </div>
 
-    <div class="projectscontents">
-        <div class="h3container">
-            <p>This is where you will find what projects I have worked on and what projects I am proud I was a part of.</p>
-            <div class="content_p">
+<!---------------------------Content------------------------------->
+    <div class="h3container">
+        <p></p>
+        <div class="project">
+            <div class="flip-card-container">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="./images/Financeme.png" alt="FinanceMe">
+                        </div>
+                            <div class="flip-card-back" data-description="Finance application that allows a user to add files, input either income or outcome
+                            and shows a record of bookkeeping and accounting. Then it I will later implement
+                            an AI feature that would allow the program to predict, according to the knowledge
+                            of the bookkeeping, future revenue.
+                            
+                            • Programmed with Python (Kivy)
+                            • University Dissertation Project
+                            • Future Features: Tax Calculation, Improvment on UI aesthetic">
+                        </div>
+                        
+                    </div>
+                </div>
                 <div class="project">
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="./images/Financeme.png" alt="FinanceMe">
+                                <img src="" alt="Recipe for a Family">
                             </div>
-                            <div class="flip-card-back">
-                                <p>This is a description of the project. It explains the key features and technologies used.</p>
+                                <div class="flip-card-back" data-description="Recipe book website (still in the works) to allow friends and family to add different
+                                recipes to the book which would also have a QR code for quick access. The user will
+                                be able to select from a range of recipes for daily meal preps. All the ingredients of
+                                the week will be calculated, and an estimated shopping list would be produced with
+                                the recommended amounts of ingredients.
+
+                                • Programmed with React, JavaScript, CSS
+                                • Will be connected to a MongoDB
+                                • Will be published on its own URL">
                             </div>
+                            
+                        </div>
+                    </div>
+            </div>
+            <div class="project">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="" alt="Ace Training">
+                        </div>
+                            <div class="flip-card-back" data-description="Moodle like website to allow teachers and students to access files and course related information. The website had a function for teachers to log in and access student records and grades as well as create quizzes for students to complete. The
+                            website is connected to an SQL database to store login information and all
+                            necessary details for file locations. This was a group-based project where I was
+                            responsible for creating an uploading page (back-end and front-end). The uploading
+                            page had the ability to upload a specific type of document and turn the document
+                            into an online quiz.
+                            
+                            • Programmed in HTML, PHP, JavaScript, CSS
+                            • Connected to an Apache MySQL database
+                            • Group University Project
+                            ">
                         </div>
                     </div>
                 </div>
-                <!-- Add more projects in the same structure -->
             </div>
         </div>
     </div>
-    
+
+    <div class="command-line">
+        <pre id="command-line-text"></pre>
+    </div>
 
     <script src="projects_script.js"></script>
+    <script src="command-line.js"></script>
+    
 </body>
 </html>
