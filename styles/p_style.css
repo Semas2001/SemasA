@@ -87,19 +87,6 @@ body {
 }
 
 .flip-card {
-  grid-column: span 1;
-}
-
-.flip-card-back.expanded {
-  height: auto; /* allow the description box to expand */
-  overflow: hidden;
-}
-
-.flip-card-back.expanded .text-container {
-  padding: 20px;
-}
-
-.flip-card {
   background-color: transparent;
   width: 100%;
   max-width: 600px;
@@ -109,6 +96,7 @@ body {
   box-sizing: border-box;
   border-radius: 25px;
   position: relative;
+  grid-column: span 1;
 }
 
 .flip-card-inner {
@@ -151,12 +139,8 @@ body {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  transition: transform 0.5s;
   border-radius: 25px;
-}
-
-.flip-card:hover .flip-card-front img {
-  transform: scale(1.1);
+  transition: transform 0.5s ease;
 }
 
 .flip-card-front h2 {
@@ -187,13 +171,16 @@ body {
   justify-content: flex-start;
   align-items: center;
   padding: 20px;
-  transition: height 0.5s ease; /* Smooth height transition */
+}
+
+.flip-card-back img {
+  transform: rotateY(180deg);
 }
 
 .flip-card-back.expanded {
-  height: auto; /* Allow the card to expand based on content */
-  padding-bottom: 30px; /* Extra space below the content */
-  transition: height 0.5s ease, padding-bottom 0.5s ease; /* Smooth height & padding */
+  height: auto;
+  padding-bottom: 30px;
+  transition: height 0.5s ease, padding-bottom 0.5s ease;
 }
 
 .flip-card-back .line {
@@ -208,6 +195,16 @@ body {
   opacity: 0;
 }
 
+@media (max-width: 900px) {
+  .flip-card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .flip-card-container {
+    grid-template-columns: 1fr;
+  }
+}
 @keyframes typewriter {
   from {
     width: 0;
